@@ -1,0 +1,207 @@
+html, body{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  --redo-main-color: #C0281E;
+  --redo-main-color-75: rgba(192,40,30,0.75);
+  --redo-main-color-50: rgba(192,40,30,0.50);
+  --redo-main-color-25: rgba(192,40,30,0.25);
+  --redo-main-color-10: rgba(192,40,30,0.1);
+  --redo-secondary-color: black;
+  --redo-secondary-color-75: rgba(0,0,0,0.75);
+  --redo-secondary-color-50: rgba(0,0,0,0.5);
+  --redo-secondary-color-25: rgba(0,0,0,0.25);
+  --redo-secondary-color-10: rgba(0,0,0,0.1);
+}
+
+.floor{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.floor .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon > *{
+  box-sizing: border-box;
+}
+.menu-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+.menu-icon-slash {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    padding: 1px 0 0 1px;
+}
+.menu-icon-slash-bar-mask.top {
+    width: 10px;
+    margin-left: 5px;
+}
+.menu-icon-slash-bar-mask {
+    position: relative;
+    overflow: hidden;
+}
+.menu-icon-slash-bar {
+    width: 10px;
+    border-bottom: 0.15em solid #000;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+}
+.menu-icon-slash-bar.top::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    border-bottom: 0.15em solid #000;
+    left: 25px;
+    transition: all 0.5s;
+}
+.menu-icon-slash-bar.top {
+    animation: slide-bar 5s infinite;
+}
+.menu-icon-slash-bar-mask.middle {
+    width: 20px;
+}
+.menu-icon-slash-bar.middle {
+    width: 20px;
+    animation: slide-bar-long 5s 0.2s infinite;
+}
+.menu-icon-slash-bar.middle::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    border-bottom: 0.15em solid #000;
+    left: 40px;
+    transition: all 0.5s;
+}
+.menu-icon-slash-bar-mask.bottom {
+    width: 10px;
+    margin-left: 5px;
+}
+.menu-icon-slash-bar.bottom {
+    animation: slide-bar 5s 0.58s infinite;
+}
+.menu-icon-slash-bar.bottom::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    border-bottom: 0.15em solid #000;
+    left: 25px;
+    transition: all 0.5s;
+}
+@keyframes slide-bar{
+    0%{
+        transform:translate3d(0, 0, 0)
+    }
+    50%{
+        transform:translate3d(0, 0, 0)
+    }
+    100%{
+        transform:translate3d(-30px, 0, 0)
+    }
+}
+@keyframes slide-bar-long{
+    0%{
+        transform:translate3d(0, 0, 0)
+    }
+    50%{
+        transform:translate3d(0, 0, 0)
+    }
+    100%{
+        transform:translate3d(-40px, 0, 0)
+    }
+}
+
+.home{
+
+}
+.home .icon-container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 50%;
+  background: transparent;
+}
+.home .icon-container .icon-wrapper{
+  background-color: white;
+  cursor: pointer;
+}
+.home .icon-container .icon-wrapper > .text{
+  width: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 24px;
+  overflow: hidden;
+  transition: width 0.4s ease-in;
+  color: var(--redo-main-color);
+}
+.home .icon-container .icon-wrapper:hover > .text{
+  width: 100px;
+}
+.home .icon-container .icon-wrapper > .icon{
+  height: 24px;
+  width: 24px;
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+.home .icon-container .icon-wrapper:hover > .icon{
+  opacity: 0.5;
+}
+.home .icon-container .icon-wrapper .icon.facebook{
+  background: url("../img/facebook.png") no-repeat center;
+  background-size: contain;
+}
+.home .icon-container .icon-wrapper .icon.twitter{
+  background: url("../img/twitter.png") no-repeat center;
+  background-size: contain;
+}
+.home .icon-container .icon-wrapper .icon.email{
+  background: url("../img/email.png") no-repeat center;
+  background-size: contain;
+}
+.home .access-button{
+  border-radius: 100px;
+  padding: 16px 24px;
+  background-color: var(--redo-secondary-color-50);
+}
+
+
+
+.about{
+
+}
+
+.stories{
+
+}
+.stories .card{
+  border-radius: 6px;
+  background: white;
+  position: relative;
+}
+
+.pricing{
+
+}
+
+
+.team{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  justify-items: center;
+  align-items: center;
+}
+.team .card{
+  width: 320px;
+}
