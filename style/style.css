@@ -12,6 +12,14 @@ html, body{
   --redo-secondary-color-50: rgba(0,0,0,0.5);
   --redo-secondary-color-25: rgba(0,0,0,0.25);
   --redo-secondary-color-10: rgba(0,0,0,0.1);
+  font-family: 'Lato', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+*, *:after, *:before {
+  box-sizing: border-box;
 }
 
 .floor{
@@ -23,10 +31,20 @@ html, body{
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.menu-icon > *{
-  box-sizing: border-box;
+/* MENU ICON */
+.menu-icon-container{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  border-radius: 50%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 .menu-icon {
     display: block;
@@ -117,21 +135,59 @@ html, body{
         transform:translate3d(-40px, 0, 0)
     }
 }
+.menu-icon-container span{
+  font-size: 12px;
+}
 
-.home{
+/* MENU */
+.menu-page{
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  transition: all 0.5s ease-in;
+  background: var(--redo-secondary-color-50);
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.menu-page.opened{
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+.menu-page ul{
 
 }
+
+
+/* HOME FLOOR */
+.home{
+  position: relative;
+  overflow: hidden;
+}
+.home #particles{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* FACEBOOK, TWITTER ICON CONTAINER */
 .home .icon-container{
   position: absolute;
   display: flex;
   flex-direction: column;
-  right: 0;
-  top: 50%;
+  right: 24px;
+  top: calc(50% - 120px);
   background: transparent;
 }
 .home .icon-container .icon-wrapper{
   background-color: white;
   cursor: pointer;
+  position: relative;
+  margin-top: 16px;
 }
 .home .icon-container .icon-wrapper > .text{
   width: 0;
@@ -140,11 +196,13 @@ html, body{
   right: 0;
   height: 24px;
   overflow: hidden;
-  transition: width 0.4s ease-in;
+  transition: width 0.3s ease-in;
   color: var(--redo-main-color);
+  right: 32px;
+  text-align: right;
 }
 .home .icon-container .icon-wrapper:hover > .text{
-  width: 100px;
+  width: 200px;
 }
 .home .icon-container .icon-wrapper > .icon{
   height: 24px;
@@ -172,6 +230,58 @@ html, body{
   padding: 16px 24px;
   background-color: var(--redo-secondary-color-50);
 }
+/* LOGO CONTAINER */
+.home .logo-container{
+  background: url("../img/logoRedBig.svg") no-repeat center;
+  background-size: contain;
+  background-color: transparent;
+  height: 780px;
+  width: 50%;
+  position: absolute;
+  left: 56px;
+  bottom: -56px;
+}
+/*TEXT CONTAINER */
+.home .text-container{
+  position: absolute;
+  top: calc(50% - 100px);
+  right: 104px;
+}
+/* GO TO APP BUTTON */
+.home .go-to-app{
+  padding: 12px 56px;
+  border-radius: 50px;
+  border: 2px solid #2a7b86;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  position: relative;
+  background-color: #468f99;
+  color: white;
+}
+.home .go-to-app:hover{
+  background-color: #2a7b86;
+}
+.home .go-to-app:before{
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  content: '';
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  background: url("../img/arrowUp.svg") no-repeat center;
+  background-size: contain;
+  left: 70%;
+  opacity: 0;
+  top: 0;
+}
+.home .go-to-app:hover:before{
+  left: 80%;
+  opacity: 1;
+}
 
 
 
@@ -187,9 +297,129 @@ html, body{
   background: white;
   position: relative;
 }
+/* CAROUSEL */
+$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+ul {
+  li {
+    list-style-type: none;
+  }
+}
+.slider--teams {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  max-width: 750px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  .slider--teams__team {
+    position: relative;
+    overflow: hidden;
+  }
+}
+#list {
+  position: relative;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  li {
+    position: relative;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    figure {
+      cursor: pointer;
+      margin: 1em;
+      opacity: 0.5;
+      backface-visibility: hidden;
+      transition: transform 450ms $easeInOutSine, opacity 450ms ease-in-out;
+      transform: scale(0.5) translateZ(0px);
+      &:hover {
+        opacity: 0.8;
+        transform: scale(0.6) translateZ(0px);
+      }
+      &:active {
+        opacity: 1;
+        transform: scale(0.7) translateZ(0px);
+      }
+      > div {
+        border-radius: 5px;
+        position: relative;
+        margin: 2rem auto;
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        transform: rotate(45deg) translateZ(0px);
+        > div {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
+          background-size: cover;
+          background-position: 0px 0px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 170px;
+          height: 170px;
+          transform: rotate(-45deg) translate(0%, -70%);
+        }
+      }
+      figcaption {
+        h2 {
+          color: #333;
+          font-size: 1.6rem;
+          font-weight: 800;
+        }
+        p {
+          color: #666;
+          font-size: 0.9rem;
+          font-weight: 400;
+        }
+      }
+    }
+    &:nth-child(1) figure > div > div {
+    background-position: 0px 0px !important;
+  }
+    &:nth-child(2) figure > div > div {
+    background-position: 0px 20% !important;
+  }
+    &:nth-child(3) figure > div > div {
+    background-position: 0px 40% !important;
+  }
+    &:nth-child(4) figure > div > div {
+    background-position: 0px 60% !important;
+  }
+    &:nth-child(5) figure > div > div {
+    background-position: 0px 80% !important;
+  }
+    &:nth-child(6) figure > div > div {
+    background-position: 0px 100% !important;
+  }
 
+  }
+}
+.active {
+  opacity: 1 !important;
+  transform: scale(1) translateZ(0px) !important;
+}
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+/* Background pattern from Subtle Patterns */
 .pricing{
-
+  background: url("../img/school.png");
+  background-repeat: repeat;
+  filter: hue-rotate(300deg);
+  -ms-transform: skewY(-2deg); /* IE 9 */
+  -webkit-transform: skewY(-2deg); /* Safari */
+  transform: skewY(-2deg); /* Standard syntax */
 }
 
 

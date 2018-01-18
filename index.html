@@ -1,27 +1,46 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/style/style.css" type="text/css">
-    <link rel="stylesheet" href="/style/ihover.css" type="text/css">
+    <link rel="stylesheet" href="./style/style.css" type="text/css">
+    <link rel="stylesheet" href="./style/ihover.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
   <body>
     <div class="menu">
-      <div class="menu-icon">
-        <div class="menu-icon-slash">
-          <div class="menu-icon-slash-bar-mask top">
-            <div class="menu-icon-slash-bar top"></div>
-          </div>
-          <div class="menu-icon-slash-bar-mask middle">
-            <div class="menu-icon-slash-bar middle"></div>
-          </div>
-          <div class="menu-icon-slash-bar-mask bottom">
-            <div class="menu-icon-slash-bar bottom"></div>
+      <div class="menu-icon-container">
+        <div class="menu-icon">
+          <div class="menu-icon-slash">
+            <div class="menu-icon-slash-bar-mask top">
+              <div class="menu-icon-slash-bar top"></div>
+            </div>
+            <div class="menu-icon-slash-bar-mask middle">
+              <div class="menu-icon-slash-bar middle"></div>
+            </div>
+            <div class="menu-icon-slash-bar-mask bottom">
+              <div class="menu-icon-slash-bar bottom"></div>
+            </div>
           </div>
         </div>
+        <span>MENU</span>
       </div>
     </div>
     <div class="floor home">
       <div class="container">
         <div id="particles"></div>
+        <div class="logo-container"></div>
+        <div class="text-container">
+          <div class="welcome">Bienvenido</div>
+          <div class="title">
+            <p>Redo</p>
+            <p>Médica</p>
+          </div>
+          <div class="go-to-app">
+            Ir a aplicación
+          </div>
+          <div class="more-info-button">
+            <i class="material-icons"></i>
+            <span>Quiero saber más</span>
+          </div>
+        </div>
         <div class="icon-container">
           <div class="icon-wrapper">
             <div class="icon facebook"></div>
@@ -77,9 +96,11 @@
     <div class="floor pricing"></div>
     <div class="floor team"></div>
   </body>
-  <script src="particles.js">
-  particlesJS.load('particles-js', 'js/particles.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
+  <script src="./js/particles.js"></script>
+  <script type="text/javascript">
+    particlesJS.load('particles', './js/particlesjs-config.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
   </script>
+
 </html>
