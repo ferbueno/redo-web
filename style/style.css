@@ -244,10 +244,45 @@ html, body{
 /*TEXT CONTAINER */
 .home .text-container{
   position: absolute;
-  top: calc(50% - 100px);
-  right: 104px;
+  top: calc(50% - 256px);
+  right: 256px;
+  width: 35%;
+}
+.home .text-container .welcome{
+  font-size: 36px;
+  color: var(--redo-secondary-color-75);
+  -webkit-text-stroke: 1px var(--redo-secondary-color-10);
+  text-stroke: 1px var(--redo-secondary-color-10);
+  text-align: left;
+  display: block;
+  font-weight: 900;
+  padding-bottom: 32px;
+}
+.home .text-container .welcome:after{
+  height: 4px;
+  width: 50px;
+  content: '';
+  background-color: var(--redo-secondary-color-25);
+  position: relative;
+  display: block;
+}
+.home .text-container .title span{
+  font-size: 104px;
+  text-align: right;
+  display: block;
+  font-weight: 900;
+  color:white;
+  -webkit-text-stroke: 2px var(--redo-secondary-color-25);
+  text-stroke: 2px var(--redo-secondary-color-25);
 }
 /* GO TO APP BUTTON */
+.home .go-to-app-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  padding-top: 16px;
+}
 .home .go-to-app{
   padding: 12px 56px;
   border-radius: 50px;
@@ -260,6 +295,9 @@ html, body{
   position: relative;
   background-color: #468f99;
   color: white;
+  width: 256px;
+  display: block;
+  text-align: center;
 }
 .home .go-to-app:hover{
   background-color: #2a7b86;
@@ -282,6 +320,60 @@ html, body{
   left: 80%;
   opacity: 1;
 }
+.home .more-info-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 136px;
+}
+.home .more-info-button{
+  display: block;
+  background: transparent;
+  color: var(--redo-secondary-color-75);
+  border: 1px solid var(--redo-secondary-color-75);
+  border-radius: 3px;
+  padding: 8px 16px;
+  position: relative;
+  margin-top: 0;
+  transition: margin 0.2s ease-in;
+  width: 296px;
+  text-align: center;
+  cursor: pointer;
+}
+.home .more-info-button .arrow{
+  position: absolute;
+  top: 8px;
+  display: block;
+  width: 8px;
+  height: 16px;
+  background: url("../img/arrowDownBlack.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s ease-out;
+}
+.home .more-info-button:hover{
+  margin-top: 8px;
+  color:white;
+}
+.home .more-info-button:hover .arrow{
+  top: 16px;
+  background: url("../img/arrowDownWhite.svg") no-repeat center;
+  background-size: contain;
+}
+.home .more-info-button:after{
+  background-color: var(--redo-secondary-color-75);
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  display: block;
+  right: 0;
+  top: 0;
+  transition: all 0.2s ease-in;
+}
+.home .more-info-button:hover:after{
+  width: 100%;
+}
 
 
 
@@ -290,126 +382,92 @@ html, body{
 }
 
 .stories{
-
+  height: 500px;
+}
+.stories .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .stories .card{
-  border-radius: 6px;
-  background: white;
+  background: transparent;
+  display: block;
   position: relative;
+  width: 50%;
+  height: 50%;
 }
-/* CAROUSEL */
-$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-$easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
-ul {
-  li {
-    list-style-type: none;
-  }
+.stories .card .text-container{
+  display: block;
+  width: 360px;
+  position: absolute;
+  top: 72px;
+  left: 168px;
 }
-.slider--teams {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  max-width: 750px;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  .slider--teams__team {
-    position: relative;
-    overflow: hidden;
-  }
+.stories .card .text-container .name{
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--redo-secondary-color);
+  display: block;
+  padding-bottom: 8px;
 }
-#list {
-  position: relative;
-  backface-visibility: hidden;
-  transform: translate3d(0,0,0);
-  li {
-    position: relative;
-    display: inline-block;
-    float: left;
-    text-align: center;
-    figure {
-      cursor: pointer;
-      margin: 1em;
-      opacity: 0.5;
-      backface-visibility: hidden;
-      transition: transform 450ms $easeInOutSine, opacity 450ms ease-in-out;
-      transform: scale(0.5) translateZ(0px);
-      &:hover {
-        opacity: 0.8;
-        transform: scale(0.6) translateZ(0px);
-      }
-      &:active {
-        opacity: 1;
-        transform: scale(0.7) translateZ(0px);
-      }
-      > div {
-        border-radius: 5px;
-        position: relative;
-        margin: 2rem auto;
-        width: 120px;
-        height: 120px;
-        overflow: hidden;
-        transform: rotate(45deg) translateZ(0px);
-        > div {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
-          background-size: cover;
-          background-position: 0px 0px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 170px;
-          height: 170px;
-          transform: rotate(-45deg) translate(0%, -70%);
-        }
-      }
-      figcaption {
-        h2 {
-          color: #333;
-          font-size: 1.6rem;
-          font-weight: 800;
-        }
-        p {
-          color: #666;
-          font-size: 0.9rem;
-          font-weight: 400;
-        }
-      }
-    }
-    &:nth-child(1) figure > div > div {
-    background-position: 0px 0px !important;
-  }
-    &:nth-child(2) figure > div > div {
-    background-position: 0px 20% !important;
-  }
-    &:nth-child(3) figure > div > div {
-    background-position: 0px 40% !important;
-  }
-    &:nth-child(4) figure > div > div {
-    background-position: 0px 60% !important;
-  }
-    &:nth-child(5) figure > div > div {
-    background-position: 0px 80% !important;
-  }
-    &:nth-child(6) figure > div > div {
-    background-position: 0px 100% !important;
-  }
-
-  }
+.stories .card .quote-up{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url("../img/quote.svg") no-repeat center;
+  background-size: contain;
+  opacity: 0.2;
+  display: block;
+  top: 24px;
+  left: -48px;
+  z-index: -1;
 }
-.active {
-  opacity: 1 !important;
-  transform: scale(1) translateZ(0px) !important;
+.stories .card .quote-down{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url("../img/quote.svg") no-repeat center;
+  background-size: contain;
+  opacity: 0.2;
+  display: block;
+  bottom: -24px;
+  right: 0;
+  transform: rotateX(180deg) rotateY(180deg);
+  z-index: -1;
 }
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
+.stories .card .text{
+  width: 360px;
+  text-align: left;
 }
-.cf:after {
-    clear: both;
+.losange {
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
-.cf {
-    *zoom: 1;
+.losange, .losange div {
+  margin: 0 auto;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+.losange {
+  transform: rotate(45deg) translateY(10px);
+}
+.losange .los1 {
+  width: 355px;
+  height: 355px;
+  transform: rotate(-45deg) translateY(-74px);
+}
+.losange .los1 .image {
+  width: 100%;
+  height: auto;
+}
+.losange .los1 .image.first{
+  background: url("../img/girlUser.jpeg") no-repeat center;
+  background-size: contain;
+  width: 300px;
+  height: 200px;
 }
 
 /* Background pattern from Subtle Patterns */

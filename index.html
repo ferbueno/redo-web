@@ -2,7 +2,8 @@
   <head>
     <link rel="stylesheet" href="./style/style.css" type="text/css">
     <link rel="stylesheet" href="./style/ihover.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,900" rel="stylesheet">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div class="menu">
@@ -30,15 +31,19 @@
         <div class="text-container">
           <div class="welcome">Bienvenido</div>
           <div class="title">
-            <p>Redo</p>
-            <p>Médica</p>
+            <span>Redo</span>
+            <span>Médica</span>
           </div>
-          <div class="go-to-app">
-            Ir a aplicación
+          <div class="go-to-app-container">
+            <div class="go-to-app">
+              Ir a aplicación
+            </div>
           </div>
-          <div class="more-info-button">
-            <i class="material-icons"></i>
-            <span>Quiero saber más</span>
+          <div class="more-info-button-container">
+            <div class="more-info-button">
+              <div class="arrow"></div>
+              Quiero saber más
+            </div>
           </div>
         </div>
         <div class="icon-container">
@@ -92,15 +97,29 @@
         </div>
       </div>
     </div>
-    <div class="floor stories"></div>
+    <div class="floor stories">
+      <div class="container">
+        <div class="card">
+          <div class="losange">
+            <div class="los1">
+              <div class="image first"></div>
+            </div>
+          </div>
+          <div class="text-container">
+            <div class="name">John Doe</div>
+            <div class="quote-up"></div>
+            <div class="text"><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim turpis, feugiat in dolor quis, ultrices sagittis felis. Ut euismod sit amet neque sed tincidunt. Sed ultricies, elit quis accumsan.</i></div>
+            <div class="quote-down"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
     <div class="floor pricing"></div>
-    <div class="floor team"></div>
+    <div class="floor team">
+    </div>
   </body>
   <script src="./js/particles.js"></script>
-  <script type="text/javascript">
-    particlesJS.load('particles', './js/particlesjs-config.json', function() {
-      console.log('callback - particles.js config loaded');
-    });
-  </script>
+  <script src="./js/script.js"></script>
 
 </html>
