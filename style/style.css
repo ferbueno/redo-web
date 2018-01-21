@@ -164,15 +164,16 @@ html, body{
 /* HOME FLOOR */
 .home{
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .home #particles{
   display: block;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 /* FACEBOOK, TWITTER ICON CONTAINER */
 .home .icon-container{
@@ -214,15 +215,15 @@ html, body{
   opacity: 0.5;
 }
 .home .icon-container .icon-wrapper .icon.facebook{
-  background: url("../img/facebook.png") no-repeat center;
+  background: url("../img/facebook.svg") no-repeat center;
   background-size: contain;
 }
 .home .icon-container .icon-wrapper .icon.twitter{
-  background: url("../img/twitter.png") no-repeat center;
+  background: url("../img/twitter.svg") no-repeat center;
   background-size: contain;
 }
 .home .icon-container .icon-wrapper .icon.email{
-  background: url("../img/email.png") no-repeat center;
+  background: url("../img/message.svg") no-repeat center;
   background-size: contain;
 }
 .home .access-button{
@@ -375,33 +376,243 @@ html, body{
   width: 100%;
 }
 
-
-
 .about{
+  height: initial;
+}
+.about .header{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  color: var(--redo-secondary-color-75);
+  width: 100%;
+  margin-top: 128px;
+  position: relative;
+  padding: 0 64px;
+}
+.about .header .text{
+  font-size: 48px;
+  font-weight: 900;
+  flex:1;
+  padding: 0 64px 0 0;
+  text-align: left;
+  position: relative;
+}
+.about .header .image{
+  width: 512px;
+  height: 512px;
+  background: url("../img/studying.jpg") no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.about .card-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+  justify-items: center;
+  align-items: center;
+  padding: 64px 32px;
+  width: 66%;
+  margin: auto;
+}
+.about .card-container .card{
+  background: white;
+  color: var(--redo-secondary-color-75);
+  padding: 24px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.about .card-container .card .icon-container{
+  position: relative;
+  margin: auto;
+  background-color: var(--redo-main-color);
+  border-radius: 3px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about .card-container .card .icon{
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.about .card-container .card .icon.versatility{
+  background: url("../img/versatility.svg") no-repeat center;
+}
+.about .card-container .card .icon.easy{
+  background: url("../img/easy.svg") no-repeat center;
+}
+.about .card-container .card .icon.responsivity{
+  background: url("../img/responsivity.svg") no-repeat center;
+}
+.about .card-container .card .icon.efectivity{
+  background: url("../img/efectivity.svg") no-repeat center;
+}
+.about .card-container .card .title{
+  display: block;
+  padding: 8px;
+  background: white;
+  color: var(--redo-main-color);
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+}
+.about .card-container .card .text{
+  padding: 24px 40px 24px;
+  font-size: 14px;
+  text-align: center;
+}
 
+.usage{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 128px;
+  height: initial;
+}
+.usage .text{
+  text-align: left;
+  flex: 1;
+}
+.usage .text .title{
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--redo-secondary-color-75);
+  padding-bottom: 32px;
+}
+.usage .text .content{
+  font-size: 16px;
+  color: var(--redo-secondary-color);
+  text-align: left;
+  max-width: 768px;
+  line-height: 24px;
+}
+.usage .text .badges{
+  display: block;
+  max-width: 256px;
+  padding-top: 24px;
+}
+.usage .text .badges .badge-container{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--redo-main-color-50);
+  margin-bottom: 16px;
+  align-items: center;
+}
+.usage .text .badges .badge-container div{
+  width: 150px;
+  height: 40px;
+}
+.usage .text .badges .badge-container .google{
+  background: url("../img/googlePlayBadge.png") no-repeat center;
+  background-size: contain;
+  height: 52px;
+  width: 200px;
+}
+.usage .text .badges .badge-container .apple{
+  background: url("../img/appleStoreBadge.svg") no-repeat center;
+  background-size: contain;
+  max-height: 40px;
+}
+.usage .text .badges .pwa{
+  padding: 25px 120px 25px 60px;
+  overflow: hidden;
+  background: var(--redo-main-color-75);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.usage .text .badges .pwa:hover{
+  background: var(--redo-main-color);
+}
+.usage .text .badges .pwa:before{
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 60px;
+  left: auto;
+  right: 10px;
+  z-index: 2;
+  background: url("../img/download.svg") no-repeat center;
+  content:'';
+}
+.usage .text .badges .pwa:after{
+  width: 30%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  z-index: 1 !important;
+  right: 0;
+  top: 0;
+  margin: -5px 0 0 -5px;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform-origin: 0 0;
+  -moz-transform: rotate(-20deg);
+  -ms-transform-origin: 0 0;
+  -ms-transform: rotate(-20deg);
+  transform-origin: 0 0;
+  transform: rotate(-20deg);
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.usage .text .badges .pwa:hover:after{
+  width: 40%;
+}
+.usage .image{
+  height: 640px;
+  background: url(../img/iphone.png) no-repeat center;
+  background-size: contain;
+  display: block;
+  position: relative;
+  width: 464px;
+}
+.usage .image .screen{
+  width: 210px;
+  height: 412px;
+  position: absolute;
+  background: url("../img/screen.svg") no-repeat center;
+  background-size: contain;
+  top: 175px;
+  left: 188px;
 }
 
 .stories{
-  height: 500px;
+  height: initial;
 }
 .stories .container{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: initial;
+  margin: 32px auto 80px;
 }
 .stories .card{
   background: transparent;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
-  width: 50%;
-  height: 50%;
+  flex: 1;
 }
 .stories .card .text-container{
   display: block;
-  width: 360px;
-  position: absolute;
-  top: 72px;
-  left: 168px;
+  position: relative;
+  padding: 16px;
 }
 .stories .card .text-container .name{
   font-weight: 900;
@@ -419,7 +630,7 @@ html, body{
   opacity: 0.2;
   display: block;
   top: 24px;
-  left: -48px;
+  left: -8px;
   z-index: -1;
 }
 .stories .card .quote-down{
@@ -430,7 +641,7 @@ html, body{
   background-size: contain;
   opacity: 0.2;
   display: block;
-  bottom: -24px;
+  bottom: 0;
   right: 0;
   transform: rotateX(180deg) rotateY(180deg);
   z-index: -1;
@@ -439,57 +650,124 @@ html, body{
   width: 360px;
   text-align: left;
 }
-.losange {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-}
-.losange, .losange div {
-  margin: 0 auto;
-  transform-origin: 50% 50%;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-}
-.losange {
-  transform: rotate(45deg) translateY(10px);
-}
-.losange .los1 {
-  width: 355px;
-  height: 355px;
-  transform: rotate(-45deg) translateY(-74px);
-}
-.losange .los1 .image {
-  width: 100%;
-  height: auto;
-}
-.losange .los1 .image.first{
+.stories .card .user{
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
   background: url("../img/girlUser.jpeg") no-repeat center;
-  background-size: contain;
-  width: 300px;
-  height: 200px;
+  background-size: cover;
+}
+.stories .title{
+  display: block;
+  padding: 24px 48px;
+  font-size: 48px;
+  color: var(--redo-secondary-color-75);
+  font-weight: 900;
+  text-align: left;
 }
 
 /* Background pattern from Subtle Patterns */
 .pricing{
+  position: relative;
+  overflow: visible;
+}
+.pricing .background{
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: url("../img/school.png");
   background-repeat: repeat;
   filter: hue-rotate(300deg);
   -ms-transform: skewY(-2deg); /* IE 9 */
   -webkit-transform: skewY(-2deg); /* Safari */
   transform: skewY(-2deg); /* Standard syntax */
+  z-index: -1;
+}
+.pricing .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 64px;
+}
+.pricing .container .price{
+  background: white;
+  border-radius: 50%;
+  width: 512px;
+  height: 512px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.pricing .container .price .number{
+  font-size: 128px;
+  color: var(--redo-main-color);
+  font-family: 'Oswald', sans-serif;
+}
+.pricing .container .price .detail{
+  font-size: 32px;
+  color: var(--redo-secondary-color-50);
+}
+.pricing .container .one-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: white;
+  -webkit-text-stroke: 2px var(--redo-secondary-color-50);
+  text-stroke: 2px var(--redo-secondary-color-50);
+}
+.pricing .container .one-container .one{
+  font-size: 512px;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+}
+.pricing .container .one-container .text-container{
+  display: block;
+}
+.pricing .container .one-container .text-container span{
+  display: block;
+  font-size: 160px;
+  font-weight: 900;
+}
+.pricing .container .one-container .text-container span + span{
+  padding-top: 32px;
 }
 
 
 .team{
+  height: initial;
+}
+.team .title{
+  display: block;
+  width: 100%;
+  text-align: right;
+  font-size: 40px;
+  font-weight: 900;
+  padding: 56px 40px 40px;
+}
+.team .grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: row;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
   justify-items: center;
   align-items: center;
+  padding-bottom: 56px;
 }
-.team .card{
-  width: 320px;
+
+.footer{
+  display: block;
+  padding: 16px;
+  background: var(--redo-secondary-color-75);
+  color: white;
+}
+.footer span{
+  display: block;
+  text-align: center;
+}
+.footer span+span{
+  padding-top: 16px;
 }
